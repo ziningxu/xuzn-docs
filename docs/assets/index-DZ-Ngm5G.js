@@ -1,0 +1,1 @@
+import{d as t,u as o,r as n,o as r,c as a,a as c,e as l}from"./index-D07_PQ_t.js";const i=t({__name:"index",setup(u){const e=o();return(_,m)=>{const s=n("el-result");return r(),a("div",null,[c(s,{icon:"success",title:`欢迎 ${l(e).userName}`},null,8,["title"])])}}});export{i as default};

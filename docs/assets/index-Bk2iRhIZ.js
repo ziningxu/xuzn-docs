@@ -1,0 +1,1 @@
+import{d as n,aC as t,o as a,c as r,a as c,aD as i,aE as _}from"./index-D07_PQ_t.js";const u={class:"login-page"},f=n({__name:"index",setup(p){const o=t();function s(){const e=_();e.length?o.push(e[0]):o.push("/")}return(e,l)=>(a(),r("div",u,[c(i,{onDone:s})]))}});export{f as default};

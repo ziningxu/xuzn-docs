@@ -1,0 +1,91 @@
+* {
+  outline: none !important;
+}
+/* 暗夜模式切换动画 */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+::view-transition-new(root) {
+  animation: clip 1s;
+}
+@keyframes clip {
+  from {
+    clip-path: circle(0%);
+  }
+  to {
+    clip-path: circle(100%);
+  }
+}
+#app {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
+.uni-msg {
+  font-size: 12px;
+  color: var(--el-text-color-regular);
+}
+/* 格式化element样式 */
+.el-input-number.is-controls-right,
+.el-cascader {
+  width: 100%;
+}
+.el-input-number.is-controls-right .el-input__inner {
+  text-align: left;
+}
+.el-tree-node__content {
+  height: 36px;
+}
+
+/* 抽屉弹窗布局 */
+.el-drawer {
+  .el-drawer__body {
+    padding: 0;
+  }
+  .el-drawer__header {
+    margin: 0;
+    padding: 15px;
+    border-bottom: solid 1px var(--el-border-color);
+  }
+  .uni-drawer-body {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+  }
+  .uni-drawer-main {
+    flex: 1;
+    overflow: auto;
+    padding: 15px;
+  }
+  .uni-drawer-footer {
+    padding: 15px;
+    display: flex;
+    justify-content: right;
+    border-top: solid 1px var(--el-border-color);
+  }
+}
+
+/* 全局滚动条样式 */
+.scrollable {
+  -webkit-overflow-scrolling: touch;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(50, 50, 50, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(50, 50, 50, 0.6);
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(50, 50, 50, 0.1);
+}
+::-webkit-scrollbar-track:hover {
+  background-color: rgba(50, 50, 50, 0.2);
+}

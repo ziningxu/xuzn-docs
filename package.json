@@ -1,0 +1,54 @@
+{
+  "name": "xuzn-docs",
+  "author": {
+    "name": "xulin",
+    "email": "350910145@qq.com"
+  },
+  "description": "xuzn-ui和模板框架的说明文档",
+  "repository": "https://gitee.com/ziningxu/xuzn-docs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "lint-staged": {
+    "./src/**/*.{js,ts,jsx,tsx,vue,json}": [
+      "npx prettier --write"
+    ]
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "@types/node": "^20.14.11",
+    "@types/prismjs": "^1.26.4",
+    "@types/sortablejs": "^1.15.8",
+    "@vitejs/plugin-vue-jsx": "^4.0.0",
+    "@vue/repl": "^4.3.1",
+    "animate.css": "^4.1.1",
+    "axios": "^1.7.2",
+    "element-plus": "^2.7.7",
+    "husky": "^9.1.1",
+    "ignore": "^5.3.2",
+    "js-base64": "^3.7.7",
+    "lint-staged": "^15.2.7",
+    "lodash-es": "^4.17.21",
+    "pinia": "^2.1.7",
+    "prettier": "^3.3.3",
+    "prismjs": "^1.29.0",
+    "sass": "^1.77.8",
+    "sortablejs": "^1.15.2",
+    "vite-plugin-prismjs": "^0.0.11",
+    "vue": "^3.4.31",
+    "vue-router": "^4.4.0",
+    "xuzn-ui": "^0.0.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.4",
+    "vue-tsc": "^2.0.24"
+  }
+}
