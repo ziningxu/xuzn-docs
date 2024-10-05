@@ -11,6 +11,12 @@ import { DocumentCopy } from '@element-plus/icons-vue'
 import Prism from 'prismjs'
 import { clipboardWriteText } from 'xuzn-ui'
 import { onMounted, onUpdated, ref } from 'vue'
+import 'prismjs/components/prism-java.js'
+import 'prismjs/components/prism-jsx.min.js'
+import 'prismjs/components/prism-tsx.min.js'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.min.css'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.min.js'
+import 'prismjs/themes/prism-okaidia.min.css'
 
 const props = defineProps<{ txt?: string; lang?: string }>()
 const codeRef = ref()

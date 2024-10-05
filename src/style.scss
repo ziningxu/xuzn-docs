@@ -41,34 +41,6 @@
   height: 36px;
 }
 
-/* 抽屉弹窗布局 */
-.el-drawer {
-  .el-drawer__body {
-    padding: 0;
-  }
-  .el-drawer__header {
-    margin: 0;
-    padding: 15px;
-    border-bottom: solid 1px var(--el-border-color);
-  }
-  .uni-drawer-body {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-  }
-  .uni-drawer-main {
-    flex: 1;
-    overflow: auto;
-    padding: 15px;
-  }
-  .uni-drawer-footer {
-    padding: 15px;
-    display: flex;
-    justify-content: right;
-    border-top: solid 1px var(--el-border-color);
-  }
-}
-
 /* 全局滚动条样式 */
 .scrollable {
   -webkit-overflow-scrolling: touch;

@@ -2,8 +2,7 @@
 import { computed, shallowRef } from 'vue'
 import LayoutApp from './LayoutApp.vue'
 import { useAppStore } from './store'
-import { getUrlQuery, UniTopProgress, UniGlobalSetting, uniGlobalState, getAniClass } from 'xuzn-ui'
-import LoginForm from '@/views/login/LoginForm.vue'
+import { getUrlQuery, UniTopProgress, UniGlobalSetting, uniGlobalState, getAniClass, UniDrawer } from 'xuzn-ui'
 import { useRoute, useRouter } from 'vue-router'
 import UniGlobalSearch from './components/UniGlobalSearch'
 import { Setting } from '@element-plus/icons-vue'
@@ -64,15 +63,12 @@ const ani = (() => {
     <div class="uni-app-setting-drag" ref="appSettingDragRef"></div>
     <ElButton type="primary" :icon="Setting" @click="appStore.showAppSetting = true" />
   </div>
-  <el-dialog v-model="appStore.showLogin" width="400" destroy-on-close>
-    <LoginForm />
-  </el-dialog>
   <el-dialog v-model="appStore.showSearch" width="700" destroy-on-close title="搜索">
     <UniGlobalSearch />
   </el-dialog>
-  <el-drawer v-model="appStore.showAppSetting" title="全局配置" destroy-on-close size="360">
+  <UniDrawer v-model="appStore.showAppSetting" title="全局配置" destroy-on-close size="360">
     <UniGlobalSetting :defaultPrimaryColors="APP_COLORS" />
-  </el-drawer>
+  </UniDrawer>
   <UniTopProgress :show="appStore.showTopProgress" />
 </template>
 

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import initAppData from './initAppData'
-import { ArrowDown, Search, FullScreen, Sunny, Moon } from '@element-plus/icons-vue'
-import { LayoutIndex, LayoutMenuItemType, LayoutTagsClickType, toggleFullScreen, uniGlobalState } from 'xuzn-ui'
+import { Search, FullScreen } from '@element-plus/icons-vue'
+import { LayoutIndex, LayoutIndexHeaderItemType, LayoutMenuItemType, LayoutTagsClickType, toggleFullScreen } from 'xuzn-ui'
 import { useUserStore, useAppStore } from '@/store'
 import { computed } from 'vue'
 import { MenuItemRegistered } from 'element-plus'
 import { RouteRecordRaw, useRouter } from 'vue-router'
 import { routes } from './router/routes'
 import { logout } from '@/router'
-import { APP_COLORS } from './appConst'
+import logoSrc from '@/assets/logo.svg'
 // 初始化项目数据
 initAppData()
 const userStore = useUserStore()
@@ -58,10 +58,18 @@ function onTagItemClick({ toItem }: LayoutTagsClickType) {
   }
 }
 
+function onLogoClick() {
+  router.push('/')
+}
 // 界面元素点击
 function onBtnsClick(type: string) {
   if (type === 'logout') {
     logout()
+  } else if (type === 'usercenter') {
+    router.push('/usercenter')
+  } else if (type === 'apiCache') {
+    sessionStorage.clear()
+    location.reload()
   } else if (type === 'switchUser') {
     appStore.showLogin = true
   } else if (type === 'search') {
@@ -70,51 +78,45 @@ function onBtnsClick(type: string) {
     toggleFullScreen()
   }
 }
+const headerBtns: LayoutIndexHeaderItemType[] = [
+  {
+    key: '搜索',
+    icon: Search,
+    onClick: () => onBtnsClick('search'),
+  },
+  {
+    key: '全屏',
+    icon: FullScreen,
+    onClick: () => onBtnsClick('fullscreen'),
+  },
+  {
+    key: userStore.userName,
+    dropdown: {
+      onCommand: onBtnsClick,
+      options: [
+        // { command: 'usercenter', title: '账号信息' },
+        { command: 'apiCache', title: '刷新缓存' },
+
+        // { command: 'switchUser', divided: true, title: '切换账号' },
+        { command: 'logout', title: '退出登录' },
+      ],
+    },
+  },
+]
 </script>
 
 <template>
-  <LayoutIndex :menus="menus" :menuActive="routeName" :tagActive="routeName" @tagItemClick="onTagItemClick" @menuItemClick="onMenuItemClick">
-    <template #header_logo>
-      <img style="height: 36px" src="@/assets/logo.svg" />
-      <span style="font-size: 20px">Admin</span>
-    </template>
-    <template #header_right>
-      <div class="header-btn">
-        <el-color-picker :predefine="APP_COLORS" v-model="uniGlobalState.primary" />
-      </div>
-      <div class="header-btn">
-        <el-switch
-          v-model="uniGlobalState.dark"
-          style="--el-switch-on-color: var(--el-bg-color); --el-switch-off-color: var(--el-color-primary)"
-          inline-prompt
-          :active-icon="Moon"
-          :inactive-icon="Sunny"
-        ></el-switch>
-      </div>
-      <div class="header-btn" @click="onBtnsClick('search')">
-        <el-icon><Search /></el-icon>
-      </div>
-      <div class="header-btn" @click="onBtnsClick('fullscreen')">
-        <el-icon><FullScreen /></el-icon>
-      </div>
-      <el-dropdown class="header-user-dropdown" @command="onBtnsClick">
-        <div class="header-btn">
-          <div class="header-user-img">
-            {{ userStore.userName.slice(0, 1) }}
-          </div>
-          <div>{{ userStore.userName }}</div>
-          <el-icon>
-            <arrow-down />
-          </el-icon>
-        </div>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item command="switchUser">切换账号</el-dropdown-item>
-            <el-dropdown-item command="logout">退出登录</el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-    </template>
+  <LayoutIndex
+    :menus="menus"
+    :menuActive="routeName"
+    :tagActive="routeName"
+    @tagItemClick="onTagItemClick"
+    @menuItemClick="onMenuItemClick"
+    @logoClick="onLogoClick"
+    :logoSrc="logoSrc"
+    logoTitle="系统管理平台"
+    :headerBtns="headerBtns"
+  >
     <slot></slot>
   </LayoutIndex>
 </template>

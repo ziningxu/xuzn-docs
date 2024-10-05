@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import path from 'path'
 import { toPagesPlugin, transformExamplesPlugin, virtualModuleConfigPlugin } from './server'
-import prismjsPlugin from 'vite-plugin-prismjs'
+
 // https://vitejs.dev/config/
 export default defineConfig(() => {
   return {
@@ -12,7 +12,6 @@ export default defineConfig(() => {
       vue(),
       vueJsx(),
       virtualModuleConfigPlugin(),
-      prismjsPlugin({ languages: ['tsx'], plugins: ['line-numbers'], theme: 'okaidia', css: true }),
       toPagesPlugin({
         includes: ['src/examples/**/*.vue'],
         paths: [
@@ -51,7 +50,7 @@ export default defineConfig(() => {
     build: { outDir: 'docs', },
     server: {
       host: '0.0.0.0',
-      port: 5800,
+      port: 5071,
       proxy: {
         '/uni': {
           target: 'http://192.168.0.1:8081',
