@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import initAppData from './initAppData'
-import { Search, FullScreen } from '@element-plus/icons-vue'
+import { Search, FullScreen, Tickets } from '@element-plus/icons-vue'
 import { LayoutIndex, LayoutIndexHeaderItemType, LayoutMenuItemType, LayoutTagsClickType, toggleFullScreen } from 'xuzn-ui'
 import { useUserStore, useAppStore } from '@/store'
 import { computed } from 'vue'
@@ -39,7 +39,7 @@ function formatMenuList(arr: RouteRecordRaw[]): LayoutMenuItemType[] {
       return {
         name: typeof o.name === 'string' ? o.name : '', // 唯一值，必须的
         title: typeof meta.title === 'string' ? meta.title : '',
-        icon: meta.icon as any,
+        icon: (meta.icon as any) || Tickets,
         subset: formatMenuList(o.children || []),
       }
     })

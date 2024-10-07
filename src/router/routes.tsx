@@ -93,6 +93,19 @@ export const routes: RouteRecordRaw[] = [
     ],
   },
   {
+    path: '/layoutExp',
+    name: 'layoutExp',
+    meta: { title: '排版示例' },
+    children: [
+      {
+        path: '/table',
+        name: 'table',
+        meta: { title: '增删改查', cache: false },
+        component: () => import('@/views/layoutExp/table1/index.vue'),
+      },
+    ],
+  },
+  {
     path: '/htmlTransform',
     name: 'htmlTransform',
     meta: { title: 'html字符转义', cache: false },

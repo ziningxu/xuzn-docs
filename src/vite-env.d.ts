@@ -21,6 +21,7 @@ meta.fullpage 独立排版 false
 */
 declare module 'vue-router' {
   interface RouteMeta {
+    title?: any
     isMenu?: boolean // 是否是菜单 默认true
     menuSort?: number // 菜单排序
     fullpage?: boolean // 是否业内全屏

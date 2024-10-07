@@ -15,7 +15,7 @@
   <ElButton type="primary" @click="uniTableRef?.switchHidden(true)">显示</ElButton>
   <ElButton type="primary" @click="uniTableRef?.switchHidden(false)">隐藏</ElButton>
   <ElDivider />
-  <UniForm :model="formModel" :items="items" ref="uniTableRef" itemMinWidth="1fr" />
+  <UniForm :model="formModel" :items="items" ref="uniTableRef" labelWidth="120" itemMinWidth="1fr" />
 </template>
 <script setup lang="ts">
 import { ElButton, ElDivider } from 'element-plus'

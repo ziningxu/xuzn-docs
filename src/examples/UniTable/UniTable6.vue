@@ -9,7 +9,7 @@
   <!-- exp ignore end -->
   <UniTable :tableApi="tableApi" :columns="columns">
     <template #filter_form>
-      <UniForm :model="formModel" label-width="auto" :items="items" @submit="onFormSubmit"></UniForm>
+      <UniForm layout-type="lr" :model="formModel" label-width="auto" :items="items" @submit="onFormSubmit"></UniForm>
     </template>
   </UniTable>
 </template>
@@ -37,6 +37,8 @@ const columns = computed<UniTableColumnPropsType[]>(() => [
 const items = computed<UniFormItemPropsType[]>(() => {
   return [
     { key: 'id', label: 'ID' },
+    { key: 'id1', label: 'ID1' },
+    { key: 'id2', label: 'ID2' },
     {
       key: 'title',
       label: 'TITLE',
@@ -48,7 +50,6 @@ const items = computed<UniFormItemPropsType[]>(() => {
         return h(ElInput)
       },
     },
-    { key: 'btns' },
   ]
 })
 function onFormSubmit() {

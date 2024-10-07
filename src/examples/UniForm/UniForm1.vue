@@ -22,7 +22,7 @@
     <ElText> 会出现展开收起的按键 </ElText>
   </p>
   <!-- exp ignore end -->
-  <UniForm :model="formModel" :items="items" label-width="auto" />
+  <UniForm :model="formModel" labelWidth="120" :items="items" />
   <pre><code>{{ JSON.stringify(formModel, null, 2) }}</code></pre>
 </template>
 <script setup lang="ts">

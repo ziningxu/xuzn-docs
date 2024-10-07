@@ -1,7 +1,7 @@
 <template>
   <div style="width: 100%; height: 100%; position: relative; display: grid; grid-template-columns: 1fr 1fr">
-    <div style="width: 100%; height: 100%; overflow: hidden">
-      <textarea style="width: 100%; height: 100%; background: #eee; box-sizing: border-box; border: 0" v-model="val"></textarea>
+    <div style="width: 100%; height: 100%; border-right: solid 1px #eee; overflow: hidden">
+      <textarea style="width: 100%; height: 100%; box-sizing: border-box; border: 0" v-model="val"></textarea>
     </div>
     <div style="width: 100%; height: 100%; overflow: auto">
       <pre><code>{{formatVal}}</code></pre>
