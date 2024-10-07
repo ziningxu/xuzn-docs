@@ -43,8 +43,8 @@ export function formatPages(config?: ToPagesConfigType) {
         ]
   function formatItemFn(dir: string, file: string, item: ToPagesPathItemType): ToPagesItemFormatType {
     const poObj = path.parse(item.outFile)
-    const pd = path.relative(dir, file).replace('\\', '/')
-    let pf = path.relative(poObj.dir, file).replace('\\', '/')
+    const pd = path.relative(dir, file).replace(/\\/g, '/')
+    let pf = path.relative(poObj.dir, file).replace(/\\/g, '/')
     pf = pf.startsWith('.') ? pf : './' + pf
     const abbSk = pd.replace('/index.vue', '').replace('.vue', '')
     // {

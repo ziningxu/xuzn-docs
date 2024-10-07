@@ -1,0 +1,1 @@
+import{_ as a,c as _,a as t,w as o,r as n,o as c,b as u}from"./index-CFvlcqMZ.js";const p={};function i(r,e){const s=n("el-button"),l=n("el-result");return c(),_("div",null,[t(l,{title:"404"},{extra:o(()=>[t(s,{type:"primary",onClick:e[0]||(e[0]=m=>r.$router.push("/"))},{default:o(()=>e[1]||(e[1]=[u("返回首页")])),_:1})]),_:1})])}const f=a(p,[["render",i]]);export{f as default};

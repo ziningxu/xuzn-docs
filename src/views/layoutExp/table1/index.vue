@@ -35,6 +35,7 @@ import RowModify from './rowModify.vue'
 const formModel = reactive({})
 const selectionRef = shallowRef([])
 const tableApi = useTable({
+  tableData: { size: 30 },
   async api(tableData) {
     return getPageList({ current: tableData.current, size: tableData.size, params: { ...formModel } })
   },
